@@ -1,1 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB TV - Plataforma de Entretenimiento Interactivo</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/hGMJ46z9/LOGO-WEB-TV-TRANSPARENTE.png">
+
+  <!-- Meta Etiquetas Generales -->
+  <meta name="description" content="Disfruta de la mejor experiencia de streaming con control remoto inteligente por QR, perfiles personalizados, favoritos y calibración en vivo.">
+  <meta name="theme-color" content="#e50914">
+
+  <!-- Meta Etiquetas para Vista Previa en WhatsApp y Redes Sociales (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://intelliwebs.github.io/webtv/">
+  <meta property="og:title" content="WEB TV - Entretenimiento e Interactividad">
+  <meta property="og:description" content="Disfruta de la mejor experiencia de streaming con control remoto inteligente por QR, perfiles personalizados, favoritos y calibración en vivo.">
+  <meta property="og:image" content="https://i.postimg.cc/HnT4tjRd/image-(4).png">
+  <meta property="og:image:secure_url" content="https://i.postimg.cc/HnT4tjRd/image-(4).png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Meta Etiquetas para Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WEB TV - Entretenimiento e Interactividad">
+  <meta name="twitter:description" content="Disfruta de la mejor experiencia de streaming con control remoto inteligente por QR, perfiles personalizados, favoritos y calibración en vivo.">
+  <meta name="twitter:image" content="https://i.postimg.cc/HnT4tjRd/image-(4).png">
+
+  <!-- Fuentes e Iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0b0b0e;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 100;
+      background: rgba(11, 11, 14, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-container img {
+      height: 38px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.4));
+    }
+    .logo-text {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-main:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 25px rgba(229, 9, 20, 0.6);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 5% 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(circle at center, rgba(229, 9, 20, 0.15) 0%, rgba(11, 11, 14, 1) 70%);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      max-width: 850px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span {
+      color: #e50914;
+      text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .preview-wrapper {
+      margin-top: 40px;
+      width: 100%;
+      max-width: 900px;
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(229, 9, 20, 0.2);
+    }
+    .preview-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+      color: #fff;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .feature-card {
+      background: rgba(24, 24, 27, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 30px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(229, 9, 20, 0.5);
+    }
+    .feature-icon {
+      font-size: 32px;
+      color: #e50914;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 80px 5%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      padding: 0 20px 20px 20px;
+      color: #aaa;
+      font-size: 0.95rem;
+      display: none;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+      color: #e50914;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 5%;
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="https://intelliwebs.github.io/webtv/" class="logo-container">
+      <img src="https://i.postimg.cc/hGMJ46z9/LOGO-WEB-TV-TRANSPARENTE.png" alt="WEB TV Logo">
+      <span class="logo-text">WEB TV</span>
+    </a>
+    <a href="https://intelliwebs.github.io/webtv/" class="btn-main">
+      <i class="fa-solid fa-play"></i> IR A WEB TV
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Tu plataforma de <span>Entretenimiento Interactivo</span> en tiempo real</h1>
+    <p>Disfruta de tus canales, listas y videos favoritos sincronizados al instante desde tu teléfono móvil mediante nuestro control remoto inteligente por QR.</p>
+    
+    <a href="https://intelliwebs.github.io/webtv/" class="btn-main" style="padding: 16px 36px; font-size: 15px;">
+      <i class="fa-solid fa-tv"></i> IR A WEB TV AHORA
+    </a>
+
+    <!-- Mockup de Imagen Oficial -->
+    <div class="preview-wrapper">
+      <img src="https://i.postimg.cc/HnT4tjRd/image-(4).png" alt="WEB TV Preview Interactivo">
+    </div>
+  </section>
+
+  <!-- Caracteristicas -->
+  <section class="features">
+    <h2 class="section-title">¿Por qué elegir WEB TV?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-qrcode"></i></div>
+        <h3>Control Remoto por QR</h3>
+        <p>Vincula la pantalla de tu televisor con tu smartphone en segundos sin descargas ni configuraciones complejas.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+        <h3>Perfiles Protegidos</h3>
+        <p>Gestiona perfiles de usuario independientes con PIN de acceso de 4 dígitos, avatares personalizados y favoritos propios.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Calibración de Imagen</h3>
+        <p>Ajusta el brillo, contraste, saturación y tono de tu pantalla en tiempo real directamente desde tu teléfono móvil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2 class="section-title">Preguntas Frecuentes</h2>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Cómo conecto mi celular a la TV?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        Abre WEB TV en tu Smart TV, escanea el código QR proyectado en pantalla con la cámara de tu teléfono móvil y listo, ¡tendrás el control total en tus manos!
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>¿Necesito instalar alguna App en mi celular?</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        No, funciona directamente desde cualquier navegador web (Chrome, Safari, Edge) en tu smartphone Android o iOS.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 WEB TV Ecosystem. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Acordeon FAQ
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
